@@ -14,11 +14,6 @@ function App() {
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
 
   useEffect(() => {
-    fetchCities();
-  }, []);
-
-  /*
-  const fetchCities = () => {
     axios.get('http://127.0.0.1:8000/api/cities/')
       .then(response => {
         setCities(response.data);
@@ -26,8 +21,8 @@ function App() {
       .catch(error => {
         console.error('Error fetching cities:', error);
       });
-  };
-*/
+  }, []);
+
 
 const baseURL = 'http://127.0.0.1:8000/media/images/';
 const fetchCities = () => {
@@ -60,18 +55,17 @@ const fetchCities = () => {
       });
   };
 
-
-
   return (
     <div>
       <ListGroup items={cities} heading="Cities" onSelectItem={handleSelectItem} />
       {selectedCity && (
         <div>
           <h2>{selectedCity.name}</h2>
-          <img
-src={selectedCity.image}alt={selectedCity.name}style={{ width: '300px', height: '200px' }}
-/>
-
+          <img 
+            src={selectedCity.image} 
+            alt={selectedCity.name} 
+            style={{ width: '300px', height: '200px', objectFit: 'cover' }} 
+          />
           <p>{selectedCity.description}</p>
           <button onClick={() => handleDelete(selectedCity.id)}>Delete City</button>
         </div>
@@ -81,55 +75,3 @@ src={selectedCity.image}alt={selectedCity.name}style={{ width: '300px', height: 
 }
 
 export default App;
-
-
-
-/*
-
-
-
-function App() {
-  const cities = [
-    { name: 'New York', image: 'new-york.jpg', description: 'New York is a bustling city known for its skyscrapers and vibrant culture.' },
-    { name: 'San Francisco', image: 'san-francisco.jpg', description: 'San Francisco is famous for the Golden Gate Bridge and its tech scene.' },
-    { name: 'Tokyo', image: 'tokyo.jpg', description: 'Tokyo is a high-tech city with a unique blend of traditional and modern culture.' },
-    { name: 'Paris', image: 'paris.jpg', description: 'Paris is known as the city of love, with iconic landmarks like the Eiffel Tower.' },
-    { name: 'London', image: 'london.jpg', description: 'London is a historic city with a rich heritage and famous sights like Big Ben.' },
-  ];
-
-  return (
-    <div>
-      <ListGroup 
-        items={cities} 
-        heading="Cities" 
-      />
-    </div>
-  );
-}
-
-export default App;
-
-
-
-
-
-
-
-
-
-/*
-import ListGroup from "./components/ListGroup"; // Make sure this path is correct and there are no other imports for ListGroup
-
-function App() {
-  let items = ['New York', 'San Francisco', 'Tokyo', 'Paris', 'London'];
-
-  return (
-    <div>
-      <ListGroup items={items} heading="Cities" />
-    </div>
-  );
-}
-
-export default App;
-*/
-
