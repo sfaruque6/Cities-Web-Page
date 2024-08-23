@@ -1,0 +1,45 @@
+/* General styling for the app container */
+.app-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Styling for the ListGroup component */
+.list-group {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-group-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
+.list-group-item.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Styling for the city details section */
+.city-details {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.city-details img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.city-details h2 {
+  margin-top: 0;
+}
